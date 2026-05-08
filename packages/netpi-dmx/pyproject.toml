@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "netpi-dmx"
+version = "0.1.0"
+description = "NetPi DMX512/RDM test and control engine"
+requires-python = ">=3.11"
+dependencies = ["netpi-core", "pyserial>=3.5", "pydantic>=2.0"]
+[tool.hatch.build.targets.wheel]
+packages = ["netpi_dmx"]

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+venv/
+ENV/
+.venv/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+/var/lib/netpi/captures/*.pcapng

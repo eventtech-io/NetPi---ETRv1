@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "netpi-db"
+version = "0.1.0"
+description = "NetPi async SQLite persistence layer"
+requires-python = ">=3.11"
+dependencies = ["netpi-core", "aiosqlite>=0.20"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["netpi_db"]
+
+
+

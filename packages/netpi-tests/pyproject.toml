@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "netpi-tests"
+version = "0.1.0"
+description = "NetPi network tests"
+requires-python = ">=3.11"
+dependencies = ["netpi-core", "icmplib>=3.0", "speedtest-cli>=2.1"]
+[tool.hatch.build.targets.wheel]
+packages = ["netpi_tests"]
