@@ -1,3 +1,5 @@
+!!!!UNTESTED!!!
+
 # NetPi 26
 
 **Modern network analyzer and DMX512/RDM test tool for Raspberry Pi 4 and Pi 5.**
