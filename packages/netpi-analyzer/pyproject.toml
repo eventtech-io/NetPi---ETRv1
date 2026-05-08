@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "netpi-analyzer"
+version = "0.1.0"
+description = "NetPi packet capture and protocol analysis engine"
+requires-python = ">=3.11"
+dependencies = ["netpi-core", "scapy>=2.5"]
+[tool.hatch.build.targets.wheel]
+packages = ["netpi_analyzer"]

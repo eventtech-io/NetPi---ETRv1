@@ -1,0 +1,21 @@
+[Unit]
+Description=NetPi Network Analyzer
+After=network.target
+
+[Service]
+Type=simple
+User=netpi
+Group=netpi
+WorkingDirectory=/opt/netpi
+Environment=PYTHONPATH=/opt/netpi/src/packages
+Environment=NETPI_DATA_DIR=/var/lib/netpi
+ExecStart=/opt/netpi/venv/bin/python -m netpi_server.main
+Restart=on-failure
+RestartSec=5
+
+# Capabilities for raw sockets and network admin
+AmbientCapabilities=CAP_NET_RAW CAP_NET_ADMIN
+CapabilityBoundingSet=CAP_NET_RAW CAP_NET_ADMIN
+
+[Install]
+WantedBy=multi-user.target

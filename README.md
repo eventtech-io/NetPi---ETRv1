@@ -1,15 +1,39 @@
-# <img src="http://blamethenetwork.com/wp-content/uploads/2015/03/analyzestealthwallpaper.jpg" />
-# NetPi Plus Network Analyzer - A RaspberryPi Project by Blame The Network.
-NetPi Plus Network Analyzer based on Raspberry Pi 3 Model B+ hardware
+# NetPi 26
 
-#########
-Visit the project website at (Still Pending)
-#########
-July 2018 Update: NetPi Plus is now in active development to leverage the Raspberry Pi 3 Model B+'s Power over Ethernet capabilities. Check back soon for more details!
-#########
-Contribute code to any of the scripts available, and request a pull. I will audit to ensure pull removes bugs or increases functionality. Report bugs on the website and I will work to resolve them.
-#########
-Software is being released GNU GPLv3. I only ask the work is attributed accordingly. All content contributors will be listed on the site and here for their work. A donation for the overall project will be accepted and appreciated to help support working hours put into development. Look forward to future open projects from BlameTheNetwork.com !
-#########
-#########
-Thank you for reading, enjoy the project and share!
+**Modern network analyzer and DMX512/RDM test tool for Raspberry Pi 4 and Pi 5.**
+
+## Quick Start
+
+```bash
+sudo bash deploy/install.sh
+```
+
+Then open `http://<pi-ip>:8080`.
+
+## Security
+
+Set `NETPI_API_KEY` to enable API key authentication:
+
+```ini
+# /etc/systemd/system/netpi.service [Service] section
+Environment=NETPI_API_KEY=your-secret-key
+Environment=NETPI_CORS_ORIGINS=http://192.168.1.100
+```
+
+Then add `X-API-Key: your-secret-key` to all requests.
+
+## Bug Fixes (v0.2.1)
+
+- `ws_router` ImportError that prevented startup
+- `async for` on `asyncio.as_completed()` (TypeError)
+- `datetime` fields assigned `float` (Pydantic ValidationError)
+- `tty.tcsendbreak` / `termios.BOTHER` — replaced UART backend with PySerial
+- DIP switch overflow for address 512
+- `ethtool --cable-test` called in `is_available()` (took link down)
+- Blocking serial I/O on event loop thread
+- CDP address TLV field offset errors
+- `CDPPacket` mutable default fields
+- `{"error": "..."}` HTTP 200 replaced with proper `HTTPException`
+- Inline `__import__()` calls removed
+- Single TX task shared across all universes
+- `dialout` group not added in installer
